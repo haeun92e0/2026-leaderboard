@@ -29,7 +29,7 @@ public class GameScoreController {
     }
 
     @PostMapping("/scores/force") //점수 강제 수정 api
-    public ResponseEntity<ScoreUpdateResponse> forceUpdateUserScore(@RequestBody ScoreSubmitRequest request) {
+    public ResponseEntity<ScoreUpdateResponse> forceUpdateUserScore(@Valid @RequestBody ScoreSubmitRequest request) {
         return ResponseEntity.ok(gameScoreService.forceUpdateScore(request));
         // OK(200)
     }

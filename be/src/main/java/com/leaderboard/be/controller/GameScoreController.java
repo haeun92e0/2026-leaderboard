@@ -2,6 +2,7 @@ package com.leaderboard.be.controller;
 
 import com.leaderboard.be.dto.*;
 import com.leaderboard.be.service.GameScoreService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ public class GameScoreController {
     //service 호출해서 처리 맡김
 
     @PostMapping("/result") //post/api/result 요청 받음
-    public ResponseEntity<ScoreSubmitResponse> registerGameResult(@RequestBody ScoreSubmitRequest request) {
+    public ResponseEntity<ScoreSubmitResponse> registerGameResult(@Valid @RequestBody ScoreSubmitRequest request) {
         //들어오는 데이터(id,gamename, score가 ScoreSubmitRequest request에 담김)
         ScoreSubmitResponse response = gameScoreService.processGameResult(request);
         //서비스가 처리

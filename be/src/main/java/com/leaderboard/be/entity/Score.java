@@ -61,4 +61,14 @@ public class Score extends BaseEntity {
     public String getNickname() {
         return this.user.getNickname();
     }
+
+    public void forceChangeBestScore(double score) {
+        this.bestScore = score;
+    }
+
+    public static Score createScore(double score, User user, Game game) {
+        Score newScore = new Score();
+        newScore.submitScore(score, user, game);
+        return newScore;
+    }
 }

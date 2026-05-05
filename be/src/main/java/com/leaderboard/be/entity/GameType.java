@@ -1,9 +1,6 @@
 package com.leaderboard.be.entity;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Getter;
-
-import java.util.Arrays;
 
 @Getter
 public enum GameType {
@@ -21,13 +18,5 @@ public enum GameType {
         this.gameName = gameName;
         this.gameNameKR = gameNameKR;
         this.lowBetter = lowBetter;
-    }
-
-    @JsonCreator
-    public static GameType from(String gameName) {
-        return Arrays.stream(values())
-                .filter(it -> it.gameName.equals(gameName))
-                .findFirst()
-                .orElseThrow();
     }
 }
